@@ -11,4 +11,22 @@ package picaria;
  */
 public class Jogador {
     
+    String nome;
+    Peca corJogador;
+    
+    public void getNome(){
+        
+    }
+    
+    
+    public void getCor(){
+        
+    }
+    
+    
+    public void joga(int linha, int coluna, Tabuleiro tabuleiro){
+        
+    }
+    
+    
 }

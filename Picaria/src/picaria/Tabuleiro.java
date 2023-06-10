@@ -11,4 +11,12 @@ package picaria;
  */
 public class Tabuleiro {
     
+    int linha;
+    int coluna;
+    Casa[][]tabuleiro;
+    
+    
+    public void getCasa(int linha, int coluna){
+        
+    }
 }

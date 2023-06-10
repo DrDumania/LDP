@@ -20,12 +20,34 @@ import javafx.stage.Stage;
 public class Picaria extends Application {
     
 
+    Jogador jogador1;
+    Jogador jogador2;
+    Jogador jogadorAtual;
+    
     @Override
     public void start(Stage primaryStage) {
   
         
     }
+    
+    public void mudaJogador(){
+        
+    }
 
+    
+    public void getVencedor(){
+        
+    }
+    
+    
+    public void jogar(int linha, int coluna){
+        
+    }
+    
+    
+    public void acabaJogo(){
+        
+    }
 
     public static void main(String[] args) {
         launch(args);
