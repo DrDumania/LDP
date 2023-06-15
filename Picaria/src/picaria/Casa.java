@@ -12,5 +12,5 @@ package picaria;
 public class Casa {
     
     Jogador ocupa;
-    Casa casaAdj = new Casa();
+    Casa casaAdjacente;
 }

@@ -6,28 +6,69 @@
 package picaria;
 
 import javafx.application.Application;
-import javafx.geometry.Pos;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+
 
 public class Picaria extends Application {
     
 
+    private Stage menuStage;
+    
     Jogador jogador1;
     Jogador jogador2;
     Jogador jogadorAtual;
     
+    public void showMenuScreen() throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Picaria.class.getResource("menu.fxml"));
+        Parent root = loader.load();
+
+        MenuController controller = loader.getController();
+        controller.setMainApp(this);
+
+        // Set the scene and show the stage
+        Scene scene = new Scene(root);
+        menuStage.setScene(scene);
+        menuStage.show();
+    }
+    
+    public void showNomeScreen() throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Picaria.class.getResource("nome.fxml"));
+        Parent root = loader.load();
+
+        // Optionally, you can pass any necessary data to the controller
+        NomeController controller = loader.getController();
+        controller.setMainApp(this);
+
+        // Set the scene and show the stage
+        Scene scene = new Scene(root);
+        menuStage.setScene(scene);
+        menuStage.show();
+    }
+
+    public void showRegrasScreen() throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Picaria.class.getResource("Regras.fxml"));
+        Parent root = loader.load();
+
+        // Optionally, you can pass any necessary data to the controller
+        RegrasController controller = loader.getController();
+        controller.setMainApp(this);
+
+        // Set the scene and show the stage
+        Scene scene = new Scene(root);
+        menuStage.setScene(scene);
+        menuStage.show();
+    }
+    
     @Override
-    public void start(Stage primaryStage) {
-  
-        
+    public void start(Stage primaryStage) throws Exception {  
+        menuStage = primaryStage;
+        showMenuScreen();
     }
     
     public void mudaJogador(){
@@ -48,6 +89,8 @@ public class Picaria extends Application {
     public void acabaJogo(){
         
     }
+    
+    
 
     public static void main(String[] args) {
         launch(args);
