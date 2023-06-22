@@ -21,7 +21,6 @@ public class RegrasController {
     
     private Picaria mainApp;
     
-    private Picaria voltarRegras = new Picaria();
 
     @FXML
     private Button voltarButton;

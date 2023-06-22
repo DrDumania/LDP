@@ -11,22 +11,26 @@ package picaria;
  */
 public class Jogador {
     
-    String nome;
-    Peca corJogador;
-    
-    public void getNome(){
-        
+    private String nome;
+    private Peca corJogador;
+
+    public Jogador(String nome, Peca corJogador) {
+        this.nome = nome;
+        this.corJogador = corJogador;
     }
-    
-    
-    public void getCor(){
-        
+
+    public String getNome() {
+        return nome;
     }
-    
-    
-    public void joga(int linha, int coluna, Tabuleiro tabuleiro){
-        
+
+    public Peca getCorJogador() {
+        return corJogador;
     }
-    
-    
+
+    public void joga(int linha, int coluna, Tabuleiro tabuleiro) {
+        Casa casa = tabuleiro.getCasa(linha, coluna);
+        if (casa != null && casa.getOcupante() == null) {
+            casa.setOcupante(this);
+        }
+    }
 }

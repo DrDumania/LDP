@@ -11,6 +11,19 @@ package picaria;
  */
 public class Casa {
     
-    Jogador ocupa;
-    Casa casaAdjacente;
+    private Jogador ocupante;
+    private Casa casaAdjacente;
+
+    public Casa() {
+        this.ocupante = null;
+        this.casaAdjacente = null;
+    }
+
+    public Jogador getOcupante() {
+        return ocupante;
+    }
+
+    public void setOcupante(Jogador jogador) {
+        ocupante = jogador;
+    }
 }

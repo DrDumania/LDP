@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.control.TextField;
 /**
  *
  * @author Bruno
@@ -25,6 +26,9 @@ public class NomeController {
     
     @FXML
     private Button confirmarButton;
+    
+    @FXML
+    private TextField nomeTextField;
 
     public void setMainApp(Picaria mainApp) {
         this.mainApp = mainApp;
@@ -42,9 +46,10 @@ public class NomeController {
     @FXML
     private void handleConfirmarButton() {
         try {
-            mainApp.showJogoScreen();
+            String playerName = nomeTextField.getText();
+            mainApp.showJogoScreen(playerName);
         } catch (Exception e) {
-        e.printStackTrace();
+            e.printStackTrace();
         }
     }
 }

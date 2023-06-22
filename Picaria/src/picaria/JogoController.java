@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.control.Label;
 /**
  *
  * @author Bruno
@@ -23,6 +24,9 @@ public class JogoController {
     
     @FXML
     private Button regrasButton;
+    
+    @FXML
+    private Label nameLabel;
     
     private Picaria mainApp;
     
@@ -46,5 +50,11 @@ public class JogoController {
         } catch (Exception e) {
             e.printStackTrace();
         }   
+    }
+    
+    @FXML
+    public void setPlayerName(String playerName) {
+        // Update do nome do jogador
+        nameLabel.setText(playerName);
     }
 }

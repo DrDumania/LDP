@@ -11,7 +11,11 @@ package picaria;
  */
 public class Peca {
     
-    String cor;
+    private String cor;
+
+    public Peca(String cor) {
+        this.cor = cor;
+    }
     
     
 }

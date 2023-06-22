@@ -17,11 +17,13 @@ public class Picaria extends Application {
     
 
     private Stage menuStage;
+   
     private Stack<Scene> sceneHistory = new Stack<>();
-    
-    Jogador jogador1;
-    Jogador jogador2;
-    Jogador jogadorAtual;
+
+    private Jogador jogador1;
+    private Jogador jogador2;
+    private Jogador jogadorAtual;
+    private Tabuleiro tabuleiro;
     
     public void showMenuScreen() throws Exception {
         FXMLLoader loader = new FXMLLoader();
@@ -68,7 +70,8 @@ public class Picaria extends Application {
     }
     
     
-    public void showJogoScreen() throws Exception {
+    public void showJogoScreen(String playerName) throws Exception {
+        
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Picaria.class.getResource("Jogo.fxml"));
         Parent root = loader.load();
@@ -76,6 +79,7 @@ public class Picaria extends Application {
         // Optionally, you can pass any necessary data to the controller
         JogoController controller = loader.getController();
         controller.setMainApp(this);
+        controller.setPlayerName(playerName);
 
         // Set the scene and show the stage
         Scene scene = new Scene(root);
@@ -90,27 +94,39 @@ public class Picaria extends Application {
         showMenuScreen();
     }
     
-    public void mudaJogador(){
-        
+     public void mudaJogador() {
+        jogadorAtual = (jogadorAtual == jogador1) ? jogador2 : jogador1;
+    }
+
+    public Jogador getVencedor() {
+        // Lógica para determinar o vencedor do jogo
+        // Retorna o jogador vencedor ou null se não houver vencedor
+        return null;
+    }
+
+    public void jogar(int linha, int coluna) {
+        String posicao = "a" + (linha + 1) + (coluna + 1); // Converte os índices para a notação da posição (exemplo: a11, a22, etc.)
+
+        if (tabuleiro.getRodada() == 1) {
+            if (jogadorAtual == jogador1 && tabuleiro.getPosicoesValidasJogador1().contains(posicao) ||
+                    jogadorAtual == jogador2 && tabuleiro.getPosicoesValidasJogador2().contains(posicao)) {
+                jogadorAtual.joga(linha, coluna, tabuleiro);
+                mudaJogador();
+            }
+        } else {
+            if (tabuleiro.getPosicoesValidasGerais().contains(posicao)) {
+                jogadorAtual.joga(linha, coluna, tabuleiro);
+                mudaJogador();
+            }
+        }
+    }
+
+    public void acabaJogo() {
+        // Lógica para encerrar o jogo
     }
 
     
-    public void getVencedor(){
-        
-    }
-    
-    
-    public void jogar(int linha, int coluna){
-        
-    }
-    
-    
-    public void acabaJogo(){
-        
-    }
-    
-    
-
+   
     public static void main(String[] args) {
         launch(args);
     }

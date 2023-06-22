@@ -26,7 +26,7 @@
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <TextField layoutX="525.0" layoutY="354.0" prefHeight="46.0" prefWidth="453.0" style="-fx-background-color: #0C185B; -fx-background-radius: 10; -fx-text-fill: #ffffff;">
+      <TextField fx:id="nomeTextField" layoutX="525.0" layoutY="354.0" prefHeight="46.0" prefWidth="453.0" style="-fx-background-color: #0C185B; -fx-background-radius: 10; -fx-text-fill: #ffffff;">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
