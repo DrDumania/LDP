@@ -21,7 +21,21 @@ public class RegrasController {
     
     private Picaria mainApp;
     
+    private Picaria voltarRegras = new Picaria();
+
+    @FXML
+    private Button voltarButton;
+
     public void setMainApp(Picaria mainApp) {
         this.mainApp = mainApp;
+    }
+
+    @FXML
+    private void handleVoltarButton() {
+        try {
+            mainApp.showMenuScreen();
+        } catch (Exception e) {
+        e.printStackTrace();
+        }
     }
 }

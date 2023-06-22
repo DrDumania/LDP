@@ -10,12 +10,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.util.Stack;
 
 
 public class Picaria extends Application {
     
 
     private Stage menuStage;
+    private Stack<Scene> sceneHistory = new Stack<>();
     
     Jogador jogador1;
     Jogador jogador2;
@@ -64,6 +66,23 @@ public class Picaria extends Application {
         menuStage.setScene(scene);
         menuStage.show();
     }
+    
+    
+    public void showJogoScreen() throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Picaria.class.getResource("Jogo.fxml"));
+        Parent root = loader.load();
+
+        // Optionally, you can pass any necessary data to the controller
+        JogoController controller = loader.getController();
+        controller.setMainApp(this);
+
+        // Set the scene and show the stage
+        Scene scene = new Scene(root);
+        menuStage.setScene(scene);
+        menuStage.show();
+    }
+    
     
     @Override
     public void start(Stage primaryStage) throws Exception {  

@@ -16,35 +16,35 @@ import javafx.stage.Stage;
  *
  * @author Bruno
  */
-public class NomeController {
+public class JogoController {
+    
+    @FXML
+    private Button sairButton;
+    
+    @FXML
+    private Button regrasButton;
     
     private Picaria mainApp;
-
-    @FXML
-    private Button voltarButton;
     
-    @FXML
-    private Button confirmarButton;
-
     public void setMainApp(Picaria mainApp) {
         this.mainApp = mainApp;
     }
-
+    
     @FXML
-    private void handleVoltarButton() {
+    private void handleRegrasButton() {
         try {
-            mainApp.showMenuScreen();
+            mainApp.showRegrasScreen();
         } catch (Exception e) {
-        e.printStackTrace();
-        }
+            e.printStackTrace();
+        }   
     }
     
     @FXML
-    private void handleConfirmarButton() {
+    private void handleSairButton() {
         try {
-            mainApp.showJogoScreen();
+            System.exit(0);
         } catch (Exception e) {
-        e.printStackTrace();
-        }
+            e.printStackTrace();
+        }   
     }
 }
